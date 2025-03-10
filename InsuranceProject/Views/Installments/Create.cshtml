@@ -1,0 +1,43 @@
+﻿@model Installment
+
+@{
+    ViewData["Title"] = "ایجاد قسط جدید";
+}
+
+<h2>ایجاد قسط جدید</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="DebtId" class="control-label"></label>
+        <select asp-for="DebtId" class="form-control" asp-items="ViewBag.Debts"></select>
+        <span asp-validation-for="DebtId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Amount" class="control-label"></label>
+        <input asp-for="Amount" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DueDate" class="control-label"></label>
+        <input asp-for="DueDate" class="form-control" type="date" />
+        <span asp-validation-for="DueDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IsPaid" class="control-label"></label>
+        <input asp-for="IsPaid" class="form-control" type="checkbox" />
+        <span asp-validation-for="IsPaid" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="ذخیره" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">بازگشت به لیست</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

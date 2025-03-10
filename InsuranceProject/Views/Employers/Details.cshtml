@@ -1,0 +1,54 @@
+﻿@model Employer
+
+@{
+    ViewData["Title"] = "جزئیات کارفرما";
+}
+
+<h2>جزئیات کارفرما</h2>
+
+<div>
+    <h4>کارفرما</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployerName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmployerName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployerType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmployerType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployerCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmployerCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.EmployerName">ویرایش</a> |
+    <a asp-action="Index">بازگشت به لیست</a>
+</div>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Receipt>
+
+@{
+    ViewData["Title"] = "لیست فیش‌ها";
+}
+
+<h2>لیست فیش‌ها</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>نام کارفرما</th>
+            <th>نوع فیش</th>
+            <th>مبلغ</th>
+            <th>تاریخ</th>
+            <th>عملیات</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var receipt in Model)
+        {
+            <tr>
+                <td>@receipt.Employer.EmployerName</td>
+                <td>@receipt.ReceiptType</td>
+                <td>@receipt.Amount</td>
+                <td>@receipt.ReceiptDate.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@receipt.ReceiptId">جزئیات</a> |
+                    <a asp-action="Edit" asp-route-id="@receipt.ReceiptId">ویرایش</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">ایجاد فیش جدید</a>

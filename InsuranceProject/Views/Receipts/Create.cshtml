@@ -1,0 +1,47 @@
+﻿@model Receipt
+
+@{
+    ViewData["Title"] = "ایجاد فیش جدید";
+}
+
+<h2>ایجاد فیش جدید</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="EmployerName" class="control-label"></label>
+        <select asp-for="EmployerName" class="form-control" asp-items="ViewBag.Employers"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="ReceiptType" class="control-label"></label>
+        <select asp-for="ReceiptType" class="form-control">
+            <option value="حق بیمه">حق بیمه</option>
+            <option value="رانندگان">رانندگان</option>
+            <option value="کارگران ساختمانی">کارگران ساختمانی</option>
+            <option value="گواهی ساختمانی">گواهی ساختمانی</option>
+        </select>
+        <span asp-validation-for="ReceiptType" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Amount" class="control-label"></label>
+        <input asp-for="Amount" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ReceiptDate" class="control-label"></label>
+        <input asp-for="ReceiptDate" class="form-control" type="date" />
+        <span asp-validation-for="ReceiptDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="ذخیره" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">بازگشت به لیست</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

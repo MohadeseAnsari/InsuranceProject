@@ -1,0 +1,42 @@
+﻿@model Receipt
+
+@{
+    ViewData["Title"] = "جزئیات فیش";
+}
+
+<h2>جزئیات فیش</h2>
+
+<div>
+    <h4>فیش</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Employer.EmployerName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Employer.EmployerName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ReceiptType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ReceiptType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ReceiptDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ReceiptDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ReceiptId">ویرایش</a> |
+    <a asp-action="Index">بازگشت به لیست</a>
+</div>

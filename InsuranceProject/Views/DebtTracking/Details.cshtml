@@ -1,0 +1,54 @@
+﻿@model DebtTracking
+
+@{
+    ViewData["Title"] = "جزئیات بدهی";
+}
+
+<h2>جزئیات بدهی</h2>
+
+<div>
+    <h4>بدهی</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Employer.EmployerName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Employer.EmployerName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NotificationDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NotificationDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DeadlineDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DeadlineDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Remarks)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Remarks)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.DebtId">ویرایش</a> |
+    <a asp-action="Index">بازگشت به لیست</a>
+</div>

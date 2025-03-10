@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Complaint>
+
+@{
+    ViewData["Title"] = "لیست شکایات";
+}
+
+<h2>لیست شکایات</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>نام کارفرما</th>
+            <th>عنوان شکایت</th>
+            <th>تاریخ ثبت</th>
+            <th>وضعیت</th>
+            <th>عملیات</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var complaint in Model)
+        {
+            <tr>
+                <td>@complaint.Employer.EmployerName</td>
+                <td>@complaint.Title</td>
+                <td>@complaint.ComplaintDate.ToString("yyyy-MM-dd")</td>
+                <td>@complaint.Status</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@complaint.ComplaintId">جزئیات</a> |
+                    <a asp-action="Edit" asp-route-id="@complaint.ComplaintId">ویرایش</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">ایجاد شکایت جدید</a>

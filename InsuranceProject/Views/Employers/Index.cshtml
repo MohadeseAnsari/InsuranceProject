@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Employer>
+
+@{
+    ViewData["Title"] = "لیست کارفرمایان";
+}
+
+<h2>لیست کارفرمایان</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>نام کارفرما</th>
+            <th>نوع کارفرما</th>
+            <th>کد کارگاهی</th>
+            <th>آدرس</th>
+            <th>شماره تلفن</th>
+            <th>عملیات</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employer in Model)
+        {
+            <tr>
+                <td>@employer.EmployerName</td>
+                <td>@employer.EmployerType</td>
+                <td>@employer.EmployerCode</td>
+                <td>@employer.Address</td>
+                <td>@employer.PhoneNumber</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@employer.EmployerName">جزئیات</a> |
+                    <a asp-action="Edit" asp-route-id="@employer.EmployerName">ویرایش</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">ایجاد کارفرما جدید</a>

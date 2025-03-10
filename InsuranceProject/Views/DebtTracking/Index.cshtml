@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DebtTracking>
+
+@{
+    ViewData["Title"] = "لیست بدهی‌ها";
+}
+
+<h2>لیست بدهی‌ها</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>نام کارفرما</th>
+            <th>مبلغ بدهی</th>
+            <th>تاریخ اخطار</th>
+            <th>تاریخ مهلت</th>
+            <th>وضعیت</th>
+            <th>عملیات</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var debt in Model)
+        {
+            <tr>
+                <td>@debt.Employer.EmployerName</td>
+                <td>@debt.Amount</td>
+                <td>@debt.NotificationDate.ToString("yyyy-MM-dd")</td>
+                <td>@debt.DeadlineDate?.ToString("yyyy-MM-dd")</td>
+                <td>@debt.Status</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@debt.DebtId">جزئیات</a> |
+                    <a asp-action="Edit" asp-route-id="@debt.DebtId">ویرایش</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">ایجاد بدهی جدید</a>

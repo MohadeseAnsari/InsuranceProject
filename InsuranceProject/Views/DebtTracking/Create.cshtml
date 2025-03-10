@@ -1,0 +1,52 @@
+﻿@model DebtTracking
+
+@{
+    ViewData["Title"] = "ایجاد بدهی جدید";
+}
+
+<h2>ایجاد بدهی جدید</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="EmployerName" class="control-label"></label>
+        <select asp-for="EmployerName" class="form-control" asp-items="ViewBag.Employers"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Amount" class="control-label"></label>
+        <input asp-for="Amount" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NotificationDate" class="control-label"></label>
+        <input asp-for="NotificationDate" class="form-control" type="date" />
+        <span asp-validation-for="NotificationDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DeadlineDate" class="control-label"></label>
+        <input asp-for="DeadlineDate" class="form-control" type="date" />
+        <span asp-validation-for="DeadlineDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Status" class="control-label"></label>
+        <input asp-for="Status" class="form-control" />
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Remarks" class="control-label"></label>
+        <textarea asp-for="Remarks" class="form-control"></textarea>
+        <span asp-validation-for="Remarks" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="ذخیره" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">بازگشت به لیست</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
